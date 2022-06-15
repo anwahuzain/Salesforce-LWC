@@ -1,0 +1,37 @@
+<template>
+    <lightning-card>
+      
+        <div class="slds-align_absolute-center slds-m-top_x-small">
+            
+            <lightning-combobox
+                name="progress"
+                label="Records Size"
+                value={pageLimit}
+                placeholder="Limit"
+                options={pageSizeOptions}
+                onchange={handleLimitChange}>
+            </lightning-combobox> 
+            &ensp;
+            <lightning-combobox
+                name="progress1"
+                label="Page number"
+                value={currentPage}
+                options={pageNumberOptions}
+                onchange={handlePageChange}>
+            </lightning-combobox>  
+             
+            &ensp;&ensp;
+            <lightning-button label="&#9664; Prev" class='slds-m-right_small'  onclick={handlePrev} disabled={disablePrev} style="font-family: sans-serif;"></lightning-button>
+            <lightning-button label="Next &#9654;" class='slds-m-right_small'  onclick={handleNext} disabled={disableNext} style="font-family: sans-serif;"></lightning-button>
+
+        </div><br>
+        
+        <lightning-datatable
+            key-field="Id"
+            data={contactToDisplay}
+            columns={columns}
+            hide-checkbox-column>
+        </lightning-datatable>
+
+    </lightning-card>
+</template>
