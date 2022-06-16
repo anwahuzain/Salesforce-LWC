@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Account Details">
+        <lightning-layout multiplerows="true" verticalalign="center">
+            <lightning-layout-item padding="around-small" size="3">
+                <template if:true={lstOfAccounts.data}>    
+                    <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Select">Select</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Name">Name</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="accId">Account Id</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={lstOfAccounts.data} for:item="acc">
+                                <tr key={acc.Name} class="slds-line-height_reset">
+                                    <td>
+                                        <lightning-input name="rdNm" type="radio" label="" value={acc.Id} onchange={handleChanges} ></lightning-input>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title="Name">{acc.Name}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title="accId">{acc.Id}</div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <button onclick={deleteAccountRecord}>Delete</button>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
+

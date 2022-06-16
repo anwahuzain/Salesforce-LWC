@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Contacts Table">
+        <div style = "height: 500px;">
+            <template if:true={contactList}>
+                <lightning-datatable
+                    key-field = "Id"
+                    data = {contactList}
+                    columns = {columns}
+                    onsave={saveHandleAction}
+                    draft-values={fldsItemValues} 
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>
